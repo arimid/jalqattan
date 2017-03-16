@@ -1,0 +1,147 @@
+*{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    -webkit-text-decoration-style: none;
+    -moz-text-decoration-style: none;
+    -ms-text-decoration-style: none;
+    -o-text-decoration-style: none;
+    text-decoration-style: none;
+    list-style-type:none;
+    font-family:'DroidArabicKufi';
+    transition: all .8s ease-in-out;}
+a:hover{text-decoration: none;}
+/*start topnav*/
+.navbar-header{
+    float: left;
+}
+
+.ad{width: 100%;
+	min-height: 700px;
+	background:url(../images/background.jpg) center center ;
+	background-size: cover;}
+
+.over{	width: 100%;
+	min-height: 700px;
+	background-color: rgba(142, 64, 60, 0.70);}
+
+
+.topbar{width: 100%;
+	padding: 1em;
+	background-color: #533635;}
+
+.logo{	width: 100px;
+	position: absolute;
+	top: 0;
+	right: 1%;
+	z-index: 1;}
+
+#date{color: white;
+	font-size: .9em;}
+
+.topbar .fa{	margin-right: .5em;
+	color: white;
+	margin-bottom: .5em;}
+/*end navbar*/
+/*start hc*/
+.hc{color: white;
+	font-size: 2em;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;}
+/* end hc*/
+/*start navbar*/
+.navbar{	background-color: #8e403c;
+	border: none;
+	z-index: 0;}
+.navbar-default .navbar-nav > li{
+    float: right;
+}
+.navbar .active ,
+.navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+,.navbar-default .navbar-nav > li > a:hover{
+	background-color: #533635;
+	color: white;}
+.navbar-toggle{
+    right: 15%;
+}
+    .navbar-default .navbar-nav > li > a {
+    color: white;
+    padding: 0.2em 1em;
+    line-height: 2.5em;
+
+    color: white;}
+
+.mas{	width: 95px;
+	position: absolute;
+	top: -2.7em;}
+
+.navbar .fa-3x {    font-size: 3em;
+    line-height: 1.3em;}
+
+.a{	font-size: 1.5em;}
+a{color: #fff}
+.navbar-default .navbar-nav > li > a {  color: white;
+    padding: 0.2em 1em;
+    line-height: 2.5em;}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{background-color: #533635;
+	color: white;}
+
+.navbar-nav > li:hover .navbar-nav > li > a{	background-color: black;}
+/*end navbar*/
+@media (max-width: 500px){
+.navbar-default .navbar-nav > li{
+    float: none;
+}
+.admin,.user{	width: 200px;
+		height: 200px;}
+.logo {
+    width: 60px;
+    right: 5%;
+    }
+    .mas {
+    width: 75px;
+    top: -2em;
+    }
+    .hc {
+    font-size: 1.5em;
+    margin: 2em 0em;
+    }
+    #date {
+    width: 50%;
+    margin: 0 auto;
+}
+}
+@media (min-width:500px) and (max-width:710px)  {
+	.hc{	font-size: 1.5em;
+			padding:1.5em 0em;}
+	
+	.navbar-toggle{		margin-right: 30%;}
+}
+
+@media (min-width:1024px) and (max-width:2000px)  {
+	.navbar-right{	margin-right: 0;
+		transition: none;}
+
+	.navbar-nav > li{float: right;margin-right: 1em;}
+}
+@media (min-width:1380px)   {  
+
+	.ad{	position: absolute;
+		top: 0;
+		bottom: 0;}
+	
+	.over{
+		position: absolute;
+		top: 0;
+		bottom: 0;}
+}
+@media (min-width: 768px) and (max-width: 1024px){
+    .navbar-right{	margin-right: 10%;
+}
+}

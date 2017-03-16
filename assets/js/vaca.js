@@ -1,0 +1,26 @@
+$(function(){
+    $('.delete').click(function(){
+        console.log($(this).siblings('.order-id').html());
+        $('.User').val($(this).siblings('.user-id').html());
+        $('.Order').val($(this).siblings('.order-id').html());
+        $('.deleteback').fadeIn(800);
+    });
+    $('.delete-cancel').click(function(){
+        $('.deleteback').fadeOut(800);
+    });
+    $('.deleteback').click(function(){
+        $('.deleteback').fadeOut(800);
+    })
+    $('.finish').click(function(){
+        console.log($(this).siblings('.order-id').html());
+        $('.User').val($(this).siblings('.user-id').html());
+        $('.Order').val($(this).siblings('.order-id').html());
+        $('.finishback').fadeIn(800);
+    });
+    $('.finish-cancel').click(function(){
+        $('.finishback').fadeOut(800);
+    });
+    $('.finishback').click(function(){
+        $('.finishback').fadeOut(800);
+    })
+});

@@ -1,0 +1,31 @@
+.footer {
+    width: 100%;
+    padding-top: .5em;
+    background-color: #6e302a;
+    color: white;
+    font-size: 1.1em;
+    margin-top: 6%;
+    direction: ltr;
+}
+.footer .row>:first-child{
+    float:left;
+}
+@media (min-width: 1380px){
+    .over {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    }
+.ad {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    
+}
+}
+@media (max-width:500px)  {
+.footer{font-size: .9em;}}

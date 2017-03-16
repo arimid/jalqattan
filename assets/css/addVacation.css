@@ -1,0 +1,116 @@
+.adpart h3{	font-size: 1.4em;}
+
+
+.adpart{	padding: 2em;
+	padding-bottom: 7em;
+	border-radius: 20px;
+	background-color:rgba(68, 37, 36, 0.60);
+	color: white;
+	font-size: 1.2em;
+	margin-bottom: 2em;
+	margin-top: 2em;}
+
+.adpart label{
+	margin-top: 3.5%;
+	
+}
+
+
+.adpart select,.adpart input{
+	padding: 5px 10px;
+	color: black;
+	border-radius: 8px;
+	border: none;
+	margin-top: 5px;
+	
+}
+
+
+
+
+
+
+div.fileinputs {
+	position: relative;
+	margin-top: 2em;
+	width: 320px;
+	border-radius: 10px;
+	background-color: #704443;
+	
+}
+
+div.fakefile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+input.file {
+	position: relative;
+	text-align: right;
+	padding: 40px;
+	border-radius: 8px;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+}
+
+
+
+
+
+.adpart .row{
+    display: flex;
+}
+.adpart .sub{	width: 130px;
+	margin:2em auto;
+	background-color:#3f2322;
+	border: none;
+	border-radius: 6px;
+	display: block;
+	padding:.5em 0em}
+
+/*start admin*/
+
+.lin{
+	padding: .2em 2em;
+	background-color:#3f2322;
+	border: none;
+	border-radius: 6px;
+	position: relative;
+	left: 150px;
+	top: -19px;
+}
+select,input{
+		width: 91%;
+	}
+@media (max-width:500px)  { 	
+	.adpart select,.adpart input{
+	margin-bottom: 6%;
+	}
+	
+	div.fileinputs{
+		width: 250px;
+	}
+}
+@media (min-width:500px) and (max-width:774px)  {
+select,input{
+		width: 80%;
+		margin: auto;
+		display: block;
+	}
+	
+	label{
+		
+		display: block;
+		margin-right: 10%;
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+	
+	.fileinputs{
+		margin-right: 15%;
+	}
+}

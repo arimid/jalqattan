@@ -1,0 +1,180 @@
+.navbar-header{
+    margin-right: -15px;
+    margin-left: -15px;
+    float: left;
+}
+.adpart h3{	font-size: 1.4em;}
+
+
+.adpart{	padding: 2em;
+	border-radius: 20px;
+	background-color:rgba(68, 37, 36, 0.60);
+	color: white;
+	font-size: 1.2em;
+	margin-bottom: 2em;
+	margin-top: 2em;}
+
+.adpart label{
+	margin-top: 3.5%;
+	
+}
+
+
+.adpart input{
+	padding: 5px 10px;
+	color: black;
+	border-radius: 8px;
+	border: none;
+	margin-top: 5px;
+	
+}
+
+
+
+
+
+
+div.fileinputs {
+	position: relative;
+	margin-top: 2em;
+	width: 320px;
+	border-radius: 10px;
+	background-color: #704443;
+	
+}
+
+div.fakefile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+input.file {
+	position: relative;
+	text-align: right;
+	padding: 40px;
+	border-radius: 8px;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+}
+
+
+
+
+
+
+.adpart .sub{	width: 130px;
+	margin:2em auto;
+	background-color:#3f2322;
+	border: none;
+	border-radius: 6px;
+	display: block;
+	padding:.5em 0em}
+
+.lin{
+	padding: .2em 2em;
+	background-color:#3f2322;
+	border: none;
+	border-radius: 6px;
+	position: relative;
+	left: 150px;
+	top: -19px;
+}
+
+.pic{
+	position: relative;
+	left: 150px;
+	top: 10px;
+	
+}
+
+
+.line{
+	width: 1px;
+	height: 105px;
+	background-color: white;
+	position: absolute;
+	opacity: .2;
+
+}
+
+.fa-user{
+	font-size: 400%;
+	position: relative;
+	top: -17px;
+	left: 50px;
+	color: #482726;
+}
+
+
+#blah {
+    border: 0;
+    width: 90px;
+	height: 90px;
+    position: absolute;
+    top: 7px;
+    left: 29px;
+    border-radius: 50%;
+	
+}
+
+.error{
+	display: block;
+	
+}
+
+
+/*end admin*/
+/*start media*/
+@media (max-width:500px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+	.adpart input{
+	margin-bottom: 6%;
+	}
+	
+	div.fileinputs{
+		width: 250px;
+	}
+	
+	.pic {
+    left: 90px;
+    font-size: 13px;
+	}
+	
+	
+	.lin {
+    padding: .2em 1.2em;
+    left: 90px;
+	}
+	
+	
+	.fa-user {
+    top: -13px;
+    left: 32px;
+	}
+	
+	
+}
+
+@media (min-width:500px) and (max-width:774px) {
+	input{
+		width: 80%;
+		margin: auto;
+		display: block;
+	}
+	
+	label{
+		
+		display: block;
+		margin-right: 10%;
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+	
+	.fileinputs{
+		margin-right: 15%;
+	}
+	
+}
