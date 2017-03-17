@@ -10,7 +10,7 @@ require_once $assets . 'includes/head.php';
 require_once $includes . 'connect.php';
 if(isset($_SESSION['username'])){
     if($_SESSION['rank'] == 0){
-        $selectCommand = 'SELECT * FROM Vacas';
+        $selectCommand = 'SELECT * FROM Vacas WHERE Status < 4';
         $selectData = $db->query($selectCommand);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($_POST['status'] <= 4){
@@ -45,11 +45,14 @@ if(isset($_SESSION['username'])){
                         <th>نوعها </th> 
                         <th> مدتها</th>
                         <th> التاريخ</th>
+                        <th>المتبقى</th>
                         <th>الحالة</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while($row = $selectData->fetch(PDO::FETCH_ASSOC)){ 
+                    <?php
+                    $i = 1;
+                    while($row = $selectData->fetch(PDO::FETCH_ASSOC)){ 
                            $getName = 'SELECT name FROM Users WHERE ID="'.$row['User_ID'].'"';
                            $name = $db->query($getName);
                            $name = $name->fetchColumn();
@@ -64,41 +67,77 @@ if(isset($_SESSION['username'])){
                             }
                     ?>
                     <tr>
-                        <?php if($row['Status'] < 4) {?>
-                        <th scope="row"  class="hidden-xs"><?php echo $row['order_ID']?></th>
+                        <th scope="row"  class="hidden-xs"><?php echo $i ?></th>
                         <?php
-                            if($row['Dur'] === 1){
+                        
+                        $resi = $row['Dur'] - (date('Ymd') - str_replace('-','',$row['vDate']));
+                        @$endDate = date('Ymd') - str_replace('-','',$row['ended_since']);
+                        if($resi == 0 || $resi == ''){
+                            $finishIt = 'UPDATE vacas SET Status=3 WHERE order_ID='.$row['order_ID']. ';';
+                            $finishIt .= 'UPDATE vacas SET ended_since=CURRENT_DATE() WHERE order_ID='.$row['order_ID'];
+                            $finishIt = $db->prepare($finishIt);
+                            $finishIt->execute();
+                        }
+                        if($endDate == 5 ){
+                            $finishIt = 'UPDATE vacas SET Status=4 WHERE order_ID='.$row['order_ID']. ';';
+                            $finishIt = $db->prepare($finishIt);
+                            $finishIt->execute();
+                        }
+                        
+                        if(!function_exists('getDir')){
+                            function getDir($num){
+                                if($num < 1){
+                                    $dur = $num;
+                                    return $dur;
+                                }
+                            elseif($num == 1){
                                 $dur = 'يوم';
-                            }elseif($row['Dur'] <= 10){
-                                $dur = $row['Dur'] . ' أيام ';
-                            }elseif($row['Dur'] >= 11 && $row['Dur'] < 30){
-                                $dur = $row['Dur'] .' يوم';
-                            }elseif($row['Dur'] == 30){
+                                return $dur;
+                            }elseif($num == 2){
+                                $dur = $num .'يومان';
+                            }elseif($num <= 10){
+                                $dur = $num . ' أيام ';
+                            }elseif($num >= 11 && $num < 30){
+                                $dur = $num .' يوم';
+                            }elseif($num == 30){
                                 $dur = 'شهر';
-                            }elseif($row['Dur'] > 30){
-                                $month = floor($row['Dur'] / 30);
-                                $day = $row['Dur'] % 30;
-                                if($day === 1){
+                            }elseif($num > 30){
+                                $month = floor($num / 30);
+                                $day = $num % 30;
+                                if($day == 1){
                                 $day = 'يوم';
+                                }elseif($day == 2){
+                                $day = $day . 'يومان';
                                 }elseif($day <= 10){
                                 $day = $day . ' أيام ';
-                                }elseif($day >= 11 && $row['Dur'] < 30){
-                                $day = $day .' يوم';}
+                                }elseif($day >= 11 && $day < 30){
+                                $day = $day .' يوم';
+                                
+                                }
                                 if ($month == 1){
                                     $month = 'شهر';
+                                }elseif($month == 2){
+                                $month = 'شهرين';
                                 }elseif($month <= 10){
                                 $month = $month . ' أشهر ';
                                 }elseif($month == 12){
                                 $month = ' سنة ';
                                 
                                 }
-                                $dur =  $month . ' و ' . $day ;
+                                return $dur =  $month . ' و ' . $day ;
                             }
+                            }
+                        }
                         ?>
                         <td><?php echo $name ?></td>
                         <td><?php echo $row['kind'] ?></td>
-                        <td><?php echo $dur ?></td>
+                        <td><?php echo getDir($row['Dur']) ?></td>
                         <td><?php echo $row['vDate']?></td>
+                        <?php if($row['Status'] == 1){ ?>
+                        <td><?php echo getDir($resi)?></td>
+                        <?php }else{ ?>
+                            <td></td>
+                        <?php } ?>
                         <td><?php echo $status?></td>
                         <?php if($row['Status'] == 0){?>
                         <td class="text-center rest-td" style="background-color: rgb(164, 96, 72);">
@@ -129,7 +168,8 @@ if(isset($_SESSION['username'])){
                             </td>
                         <?php } ?>
                     </tr>
-                    <?php }} ?>
+                    <?php $i++;
+                        } ?>
                 </tbody> 
             </table>
             <div class="deleteback">
@@ -150,7 +190,7 @@ if(isset($_SESSION['username'])){
             <div class="finishback">
                         <div class="finishbox">
                             <h1>إنهاء أجازة</h1>
-                            <h2>هل انت متأكد من أنك تريد إنهاء الاجازة باقى على موعد انتهائها <span class="finishDur">1</span> يوم</h2>
+                            <h2>هل انت متأكد من أنك تريد إنهاء الاجازة قبل موعدها<span type="text" class="finishDur"></span></h2>
                             <div>
                             <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
                                 <input class="User" type="hidden" name="User_id" value="">

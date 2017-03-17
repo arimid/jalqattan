@@ -88,14 +88,14 @@
 									<?php
                                                                         if(!isset($pages) && isset($pageTitle)){
                                                                             $pages = $pageTitle;
-                                                                        };
+                                                                        }
                                                                         if(!isset($pageStyle)){
                                                                             $pageStyle = 'outLine';
                                                                         }
                                                                         if(isset($pages)){
                                                                         if(is_array($pages)){
                                                                             if($pageStyle == 'outLine'){
-                                                                        foreach ($pages as $page){
+                                                                                foreach ($pages as $page){
                                                                                 if(array_search($page, $pages) + 1=== count($pages)){ ?>
                                                                      <li ><a href="#" class="a active"><?php echo $page?></a></li>
                                                                     

@@ -1,8 +1,4 @@
-.navbar-header{
-    margin-right: -15px;
-    margin-left: -15px;
-    float: left;
-}
+
 .adpart h3{	font-size: 1.4em;}
 
 
@@ -20,7 +16,7 @@
 }
 
 
-.adpart input{
+.adpart input, .adpart select{
 	padding: 5px 10px;
 	color: black;
 	border-radius: 8px;
@@ -30,7 +26,9 @@
 }
 
 
-
+.adpart select{
+    width: 100%;
+}
 
 
 
@@ -130,7 +128,7 @@ input.file {
 /*end admin*/
 /*start media*/
 @media (max-width:500px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
-	.adpart input{
+	.adpart input, .adpart select{
 	margin-bottom: 6%;
 	}
 	
@@ -159,7 +157,7 @@ input.file {
 }
 
 @media (min-width:500px) and (max-width:774px) {
-	input{
+	input, select{
 		width: 80%;
 		margin: auto;
 		display: block;

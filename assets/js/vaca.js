@@ -12,7 +12,6 @@ $(function(){
         $('.deleteback').fadeOut(800);
     })
     $('.finish').click(function(){
-        console.log($(this).siblings('.order-id').html());
         $('.User').val($(this).siblings('.user-id').html());
         $('.Order').val($(this).siblings('.order-id').html());
         $('.finishback').fadeIn(800);

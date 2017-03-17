@@ -21,7 +21,7 @@
 								<button class=" ">تقييم الموظف</button>
                                                                 </div>
                                                                 <div class="btns-box">
-								<button class=" ">الغياب</button>
+                                                                    <a href="Absence/"><button class=" ">الغياب</button></a>
 								<button class=" ">البريد</button>
 								<button class=" ">العقود</button>
 								<button class=" ">التقارير</button>
